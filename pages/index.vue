@@ -9,7 +9,13 @@
                     <VHover v-slot="{ isHovering, props }">
                         <VCard v-bind="props" :hover="isHovering" @Click="onSelectedImage(item)">
                             <VOverlay :model-value="isHovering" contained scrim="primary" />
-                            <VImg aspect-ratio="16/9" :src="`${item.id}.jpg`" cover />
+                            <VImg aspect-ratio="16/9" :src="`${item.id}.jpg`" :lazy-src="`${item.id}.jpg`" cover>
+                                <template v-slot:placeholder>
+                                    <VRow class="fill-height ma-0" align="center" justify="center">
+                                        <VProgressCircular indeterminate color="grey-lighten-5" />
+                                    </VRow>
+                                </template>
+                            </VImg>
                         </VCard>
                     </VHover>
                 </div>
