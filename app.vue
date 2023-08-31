@@ -19,7 +19,7 @@
       <NuxtPage />
     </VMain>
 
-    <VFooter color="primary">
+    <VFooter color="primary" height="20">
       <VRow no-gutters>
         <VCol class="text-center" cols="12">
           {{ new Date().getFullYear() }} — <strong>sctnightcore</strong>
