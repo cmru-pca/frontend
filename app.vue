@@ -9,8 +9,8 @@
 
     <VNavigationDrawer v-model="useDrawer" location="bottom" temporary>
       <VList class="text-uppercase">
-        <VListItem prepend-icon="mdi-home" title="HOME" to="/" />
-        <VListItem prepend-icon="mdi-table-account" title="SCORE TABLE" disabled />
+        <VListItem prepend-icon="mdi-home" title="HOME" to="/" active-color="primary" />
+        <VListItem prepend-icon="mdi-table-account" title="STATISTICS" to="/statistics" active-color="primary" />
         <VListItem prepend-icon="mdi-github" title="CONTRIBUTING TO PROJECTS" href="https://github.com/cmru-pca"
           target="_blank"></VListItem>
       </VList>
@@ -18,15 +18,6 @@
     <VMain>
       <NuxtPage />
     </VMain>
-
-    <VFooter color="primary" height="20">
-      <VRow no-gutters>
-        <VCol class="text-center" cols="12">
-          {{ new Date().getFullYear() }} — <strong>sctnightcore</strong>
-        </VCol>
-      </VRow>
-    </VFooter>
-
   </VApp>
 </template>
 

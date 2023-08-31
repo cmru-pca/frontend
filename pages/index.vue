@@ -2,23 +2,18 @@
     <VContainer fluid>
         <VRow align="center" justify="center">
             <VCol v-for="item in response?.data" :key="item.id" cols="12" md="2">
-                <div v-if="pending">
-                    <VSkeletonLoader v-for="item in 17" :elevation="5" boilerplate type="card"></VSkeletonLoader>
-                </div>
-                <div v-else>
-                    <VHover v-slot="{ isHovering, props }">
-                        <VCard v-bind="props" :hover="isHovering" @Click="onSelectedImage(item)">
-                            <VOverlay :model-value="isHovering" contained scrim="primary" />
-                            <VImg aspect-ratio="16/9" :src="`${item.id}.jpg`" :lazy-src="`${item.id}.jpg`" cover>
-                                <template v-slot:placeholder>
-                                    <VRow class="fill-height ma-0" align="center" justify="center">
-                                        <VProgressCircular indeterminate color="grey-lighten-5" />
-                                    </VRow>
-                                </template>
-                            </VImg>
-                        </VCard>
-                    </VHover>
-                </div>
+                <VHover v-slot="{ isHovering, props }">
+                    <VCard v-bind="props" :hover="isHovering" @Click="onSelectedImage(item)">
+                        <VOverlay :model-value="isHovering" contained scrim="primary" />
+                        <VImg aspect-ratio="16/9" :src="`${item.id}.jpg`" :lazy-src="`${item.id}.jpg`" cover>
+                            <template v-slot:placeholder>
+                                <VRow class="fill-height ma-0" align="center" justify="center">
+                                    <VProgressCircular indeterminate color="grey-lighten-5" />
+                                </VRow>
+                            </template>
+                        </VImg>
+                    </VCard>
+                </VHover>
             </VCol>
         </VRow>
     </VContainer>
@@ -85,7 +80,6 @@
 
 <script setup lang="ts">
 import { VBottomSheet } from 'vuetify/labs/VBottomSheet'
-import { VSkeletonLoader } from "vuetify/labs/VSkeletonLoader"
 
 const BASE_URL: string = "https://raw.githubusercontent.com/cmru-pca/scraper/main/data/2023/data.json?callback=json"
 
