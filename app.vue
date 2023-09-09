@@ -5,6 +5,14 @@
       <VAppBarTitle class="text-center">
         CMRU SCI-TECH AMBASSADOR
       </VAppBarTitle>
+        <VBtn icon @click="toggleTheme">
+        <template v-if="theme.global.name.value === 'light'">
+          <v-icon style="color: rgb(20, 20, 20);">mdi-weather-night</v-icon>
+        </template>
+        <template v-else>
+          <v-icon style="color: white;">mdi-white-balance-sunny</v-icon>
+        </template>
+      </VBtn>
     </VAppBar>
 
     <VNavigationDrawer v-model="useDrawer" location="bottom" temporary>
@@ -22,7 +30,14 @@
 </template>
 
 <script setup>
-const useDrawer = ref(false)
+import { useTheme } from 'vuetify';
+const useDrawer = ref(false),
+  theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
+
 </script>
 
 <style>
