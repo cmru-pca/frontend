@@ -81,7 +81,7 @@
 <script setup lang="ts">
 import { VBottomSheet } from 'vuetify/labs/VBottomSheet'
 
-const BASE_URL: string = "https://raw.githubusercontent.com/cmru-pca/scraper/main/data/2023/data.json?callback=json"
+const BASE_URL: string = "https://raw.githubusercontent.com/cmru-pca/scraper/data/2023/data.json?callback=json"
 
 const useBottomSheets = ref(false)
 const selectedImageData = ref()
